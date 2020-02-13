@@ -78,25 +78,25 @@ nmap <F12> :NERDTreeToggle<CR>
 let g:tagbar_left = 1
 let g:tagbar_width = 35
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd BufNewFile,BufRead *.cls set syntax=vb
 
 let g:NERDTreeDirArrowExpandable = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = 'right'
 let g:NERDTreeWinSize = 35
 
 let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "•",
-            \ "Staged"    : "+",
-            \ "Untracked" : "*",
-            \ "Renamed"   : "→",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "╳",
-            \ "Dirty"     : "!",
-            \ "Clean"     : "✓",
+            \ 'Modified'  : '•',
+            \ 'Staged'    : '+',
+            \ 'Untracked' : '*',
+            \ 'Renamed'   : '→',
+            \ 'Unmerged'  : '═',
+            \ 'Deleted'   : '╳',
+            \ 'Dirty'     : '!',
+            \ 'Clean'     : '✓',
             \ 'Ignored'   : '☒',
-            \ "Unknown"   : "?"
+            \ 'Unknown'   : '?'
             \ }
 
 let g:syntastic_python_checkers = ['mypy', 'python3']
@@ -107,9 +107,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 
-            \ "mode"                : "active",
-            \ "acive_filetypes"     : [],
-            \ "passive_filetypes"   : []
+            \ 'mode'                : 'active',
+            \ 'acive_filetypes'     : [],
+            \ 'passive_filetypes'   : []
             \}
 
 let g:groovy_highlight_all = 1
@@ -139,16 +139,17 @@ let g:airline_right_alt_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols = {
-            \'readonly': 'ro',
-            \'whitespace': '',
-            \'linenr': '[',
-            \'maxlinenr': ']',
-            \'branch': '',
-            \'notexists': 'x',
-            \'dirty': '!',
-            \'crypt': '',
-            \'space': ' ',
-            \'ellipsis': '…'}
+            \ 'readonly': 'ro',
+            \ 'whitespace': '',
+            \ 'linenr': '[',
+            \ 'maxlinenr': ']',
+            \ 'branch': '',
+            \ 'notexists': 'x',
+            \ 'dirty': '!',
+            \ 'crypt': '',
+            \ 'space': ' ',
+            \ 'ellipsis': '…'
+            \ }
 
 function! HasPaste()
     if &paste
@@ -159,8 +160,8 @@ endfunction
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr('%')
+    let l:alternateBufNum = bufnr('#')
 
     if buflisted(l:alternateBufNum)
         buffer #
@@ -168,30 +169,30 @@ function! <SID>BufcloseCloseIt()
         bnext
     endif
 
-    if bufnr("%") == l:currentBufNum
+    if bufnr('%') == l:currentBufNum
         new
     endif
 
     if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
+        execute('bdelete! ' . l:currentBufNum)
     endif
 endfunction
 
 function! CmdLine(str)
-    call feedkeys(":" . a:str)
+    call feedkeys(':' . a:str)
 endfunction 
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
-    execute "normal! vgvy"
+    execute 'normal! vgvy'
 
     let l:pattern = escape(@", "\\/.*'$^~[]")
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+    let l:pattern = substitute(l:pattern, '\n$', '', '')
 
     if a:direction == 'gv'
         call CmdLine("Ack '" . l:pattern . "' " )
     elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
+        call CmdLine('%s' . '/' . l:pattern . '/')
     endif
 
     let @/ = l:pattern
