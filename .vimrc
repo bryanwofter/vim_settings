@@ -85,7 +85,7 @@ let g:NERDTreeWinSize = 35
 let g:NERDTreeIndicatorMapCustom = {
             \ 'Modified'  : '•',
             \ 'Staged'    : '+',
-            \ 'Untracked' : '*',
+            \ 'Untracked' : ' ',
             \ 'Renamed'   : '→',
             \ 'Unmerged'  : '═',
             \ 'Deleted'   : '╳',
