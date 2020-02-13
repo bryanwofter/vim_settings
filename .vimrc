@@ -132,20 +132,23 @@ let g:tagbar_type_groovy = {
 
 let g:ycm_collect_identifiers_from_tags_files = 1
 
-let g:airline_theme = 'simple'
+let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = ' '
-let g:airline_left_alt_sep = '▶'
-let g:airline_right_alt_sep = '◀'
-let g:airline_left_sep = '▙▚▘'
-let g:airline_right_sep = '▝▞▟'
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.whitespace = ' '
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols = {
+            \'readonly': 'ro',
+            \'whitespace': '',
+            \'linenr': '[',
+            \'maxlinenr': ']',
+            \'branch': '',
+            \'notexists': 'x',
+            \'dirty': '!',
+            \'crypt': '',
+            \'space': ' ',
+            \'ellipsis': '…'}
 
 function! HasPaste()
     if &paste
