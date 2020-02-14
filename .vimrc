@@ -33,7 +33,7 @@ set mat=2
 set t_vb=
 set tm=500
 
-set foldcolumn=5
+set foldcolumn=2
 
 syntax enable 
 colorscheme monokai
@@ -91,7 +91,7 @@ let g:NERDTreeIndicatorMapCustom = {
             \ 'Deleted'   : '╳',
             \ 'Dirty'     : '!',
             \ 'Clean'     : '✓',
-            \ 'Ignored'   : '/',
+            \ 'Ignored'   : 'i',
             \ 'Unknown'   : '?'
             \ }
 
