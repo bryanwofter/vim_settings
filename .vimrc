@@ -6,7 +6,7 @@ filetype plugin on
 filetype indent on
 
 set autoread
-set fdm=indent
+set fdm=syntax
 
 set so=7
 
