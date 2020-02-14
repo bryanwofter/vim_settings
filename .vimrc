@@ -33,7 +33,7 @@ set mat=2
 set t_vb=
 set tm=500
 
-set foldcolumn=1
+set foldcolumn=5
 
 syntax enable 
 colorscheme monokai
@@ -83,15 +83,15 @@ let g:NERDTreeWinPos = 'right'
 let g:NERDTreeWinSize = 35
 
 let g:NERDTreeIndicatorMapCustom = {
-            \ 'Modified'  : '•',
-            \ 'Staged'    : '+',
-            \ 'Untracked' : ' ',
+            \ 'Modified'  : '+',
+            \ 'Staged'    : '•',
+            \ 'Untracked' : '⌧',
             \ 'Renamed'   : '→',
             \ 'Unmerged'  : '═',
             \ 'Deleted'   : '╳',
             \ 'Dirty'     : '!',
             \ 'Clean'     : '✓',
-            \ 'Ignored'   : '☒',
+            \ 'Ignored'   : '/',
             \ 'Unknown'   : '?'
             \ }
 
