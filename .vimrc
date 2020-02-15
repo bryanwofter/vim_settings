@@ -11,7 +11,7 @@ set nu
 set hid
 set so          =7
 set cmdheight   =1
-set fdm         =indent
+set fdm         =syntax
 
 set ignorecase
 set smartcase
@@ -23,7 +23,7 @@ set backspace   =eol,start,indent
 set mat         =2
 set t_vb        =
 set tm          =500
-set foldcolumn  =1
+set foldcolumn  =2
 set whichwrap  +=<,>,h,l
 
 syntax enable 
