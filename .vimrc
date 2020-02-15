@@ -1,5 +1,9 @@
 execute pathogen#infect()
 
+if &term =~ '256color'
+    set t_ut=
+endif
+
 set history=9999
 
 filetype plugin on
@@ -113,7 +117,11 @@ if !exists('g:syntastic_mode_map')
     let g:syntastic_mode_map                ={}
 endif
 let g:syntastic_python_checkers             =['mypy', 'python3']
-let g:syntastic_python_mypy_args            ='--config-file=/home/bwofter/.mypy.ini'
+if filereadable('/home/bwofter/.mypy.ini')
+    let g:syntastic_python_mypy_args        ='--config-file=/home/bwofter/.mypy.ini'
+else
+    let g:syntastic_python_mypy_args        =''
+endif
 let g:syntastic_loc_list_height             =5
 let g:syntastic_always_populate_loc_list    =1
 let g:syntastic_auto_loc_list               =1
