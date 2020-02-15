@@ -61,15 +61,19 @@ nmap <C-down> <C-W><C-J>
 nmap <C-up> <C-W><C-K>
 nmap <C-right> <C-W><C-L>
 nmap <C-left> <C-W><C-H>
+nmap <A-h> :tabn<CR>
+nmap <A-l> :tabp<CR>
+nmap <C-H> :tabn<CR>
+nmap <C-L> :tabp<CR>
 nmap <A-right> :tabn<CR>
 nmap <A-left> :tabp<CR>
 nmap <F2> :source ~/.vimrc<CR>
-nmap <F5> :tabedit
-nmap <F8> :split<CR>
-nmap <F9> :set hlsearch!<CR>
-nmap <F10> :call RealSyntasticToggle()<CR>
-nmap <F11> :TagbarToggle<CR>
-nmap <F12> :NERDTreeToggle<CR>
+nmap <F5> :tabedit 
+nmap <F6> :split<CR>
+nmap <F7> :set hlsearch!<CR>
+nmap <F8> :call RealSyntasticToggle()<CR>
+nmap <F9> :TagbarToggle<CR>
+nmap <F10> :NERDTreeToggle<CR>
 
 let g:tagbar_left = 1
 let g:tagbar_width = 35
