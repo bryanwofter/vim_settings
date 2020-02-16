@@ -31,7 +31,7 @@ set foldcolumn  =2
 set whichwrap  +=<,>,h,l
 
 syntax enable 
-colorscheme  darcula
+colorscheme  py-darcula
 set guifont =Fira\ Code\ Regular:h11
 set encoding=utf8
 set ffs     =unix,dos,mac
