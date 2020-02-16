@@ -31,7 +31,7 @@ set foldcolumn  =2
 set whichwrap  +=<,>,h,l
 
 syntax enable 
-colorscheme  monokai
+colorscheme  darcula
 set guifont =Fira\ Code\ Regular:h11
 set encoding=utf8
 set ffs     =unix,dos,mac
@@ -148,7 +148,7 @@ let g:ycm_collect_identifiers_from_tags_files   =1
 if !exists('g:airline_symbols')
     let g:airline_symbols               ={}
 endif
-let g:airline_theme                     ='molokai'
+let g:airline_theme                     ='darcula'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_left_alt_sep              =''
 let g:airline_right_alt_sep             =''
