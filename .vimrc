@@ -116,7 +116,11 @@ let g:NERDTreeIndicatorMapCustom.Unknown    ='?'
 if !exists('g:syntastic_mode_map')
     let g:syntastic_mode_map                ={}
 endif
-let g:syntastic_python_checkers             =['mypy', 'python3']
+if has('unix')
+    let g:syntastic_python_checkers             =['mypy', 'python3.7']
+else
+    let g:syntastic_python_checkers             =['mypy', 'python3']
+endif
 if filereadable('/home/bwofter/.mypy.ini')
     let g:syntastic_python_mypy_args        ='--config-file=/home/bwofter/.mypy.ini'
 else
