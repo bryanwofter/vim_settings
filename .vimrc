@@ -116,11 +116,7 @@ let g:NERDTreeIndicatorMapCustom.Unknown    ='?'
 if !exists('g:syntastic_mode_map')
     let g:syntastic_mode_map                ={}
 endif
-if has('unix')
-    let g:syntastic_python_checkers             =['mypy', 'python3.7']
-else
-    let g:syntastic_python_checkers             =['mypy', 'python3']
-endif
+let g:syntastic_python_checkers             =['mypy', 'python3.7']
 if filereadable('/home/bwofter/.mypy.ini')
     let g:syntastic_python_mypy_args        ='--config-file=/home/bwofter/.mypy.ini'
 else
@@ -148,6 +144,12 @@ let g:tagbar_type_groovy.kinds              =['p:package:1', 'c:classes', 'i:int
                                              \'e:enums', 'm:methods', 'f:fields:1']
 
 let g:ycm_collect_identifiers_from_tags_files   =1
+let g:ycm_python_interpreter_path               =''
+let g:ycm_python_sys_path                       =[]
+let g:ycm_extra_conf_vim_data                   =['g:ycm_python_interpreter_path', 'g:ycm_python_sys_path']
+if filereadable('/home/bwofter/global_extra_conf.py')
+    let g:ycm_global_ycm_extra_conf             ='/home/bwofter/global_extra_conf.py'
+endif
 
 if !exists('g:airline_symbols')
     let g:airline_symbols               ={}
