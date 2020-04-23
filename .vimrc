@@ -49,6 +49,10 @@ set ai
 set si
 set wrap!
 
+" Setup status line
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
+
 " Setup the common commands
 nmap <C-j>  <C-W>j
 nmap <C-k>  <C-W>k
@@ -116,7 +120,7 @@ let g:NERDTreeIndicatorMapCustom.Unknown    ='?'
 if !exists('g:syntastic_mode_map')
     let g:syntastic_mode_map                ={}
 endif
-let g:syntastic_python_checkers             =['mypy', 'python3.7']
+let g:syntastic_python_checkers             =['mypy', 'python3.8']
 if filereadable('/home/bwofter/.mypy.ini')
     let g:syntastic_python_mypy_args        ='--config-file=/home/bwofter/.mypy.ini'
 else
@@ -142,7 +146,14 @@ let g:groovy_comment_strings                =1
 let g:tagbar_type_groovy.ctagstype          ='groovy'
 let g:tagbar_type_groovy.kinds              =['p:package:1', 'c:classes', 'i:interfaces', 't:traits',
                                              \'e:enums', 'm:methods', 'f:fields:1']
+if !exists('g:tagbar_type_python')
+    let g:tagbar_type_python                ={}
+endif
+let g:tagbar_type_python.ctagstype          ='python'
+let g:tagbar_type_python.kinds              =['c:classes', 'f:functions', 'm:class members', 'v:variables',
+                                             \'I:external modules', 'x:external names', 'z:function parameters']
 
+let g:ycm_filetype_blacklist                    ={'py': 1}
 let g:ycm_collect_identifiers_from_tags_files   =1
 let g:ycm_python_interpreter_path               =''
 let g:ycm_python_sys_path                       =[]
@@ -170,6 +181,14 @@ let g:airline_symbols.dirty             ='!'
 let g:airline_symbols.crypt             =''
 let g:airline_symbols.space             =' '
 let g:airline_symbols.ellipsis          ='…'
+let g:airline_section_c                 ='%<%f %h%m%r%>%{kite#statusline()}'
+
+let g:kite_tab_complete =1
+let g:kite_log          =1
+
+set completeopt       +=menuone
+set completeopt       +=noinsert
+set completeopt       +=preview
 
 function! HasPaste()
     if &paste
