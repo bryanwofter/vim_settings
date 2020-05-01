@@ -49,17 +49,12 @@ set ai
 set si
 set wrap!
 
-" Setup status line
-set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
-set laststatus=2
-
 " Setup the common commands
 nmap <C-j>  <C-W>j
 nmap <C-k>  <C-W>k
 nmap <C-h>  <C-W>h
 nmap <C-l>  <C-W>l
 nmap <F2>   :source ~/.vimrc<CR>
-nmap <F5>   :tabedit 
 if has('macunix')
     " If we're on mac, we need to use shift in many of the commands
     nmap <SC-down>  <C-W><C-J>
@@ -70,6 +65,7 @@ if has('macunix')
     nmap <AC-up>    :tabfirst<CR>
     nmap <AC-right> :tabn<CR>
     nmap <AC-left>  :tabp<CR>
+    nmap <F5>       :PymodeLint<CR>
     nmap <F6>       :split<CR>
     nmap <F7>       :set hlsearch!<CR>
     nmap <F8>       :call RealSyntasticToggle()<CR>
@@ -86,6 +82,7 @@ else
     nmap <A-up>     :tabfirst<CR>
     nmap <A-right>  :tabn<CR>
     nmap <A-left>   :tabp<CR>
+    nmap <F7>       :PymodeLint<CR>
     nmap <F8>       :split<CR>
     nmap <F9>       :set hlsearch!<CR>
     nmap <F10>      :call RealSyntasticToggle()<CR>
@@ -133,9 +130,19 @@ let g:syntastic_check_on_open               =1
 let g:syntastic_check_on_wq                 =0
 let g:syntastic_mode_map.mode               ='active'
 let g:syntastic_mode_map.active_filetypes   =[]
-let g:syntastic_mode_map.passive_filetypes  =[]
+let g:syntastic_mode_map.passive_filetypes  =['python']
 
-if !exists('g:tagbar_type_groovy')
+let g:pymode                            =1
+let g:pymode_options_max_line_length    =240
+let g:pymode_options_colorcolumn        =0
+let g:pymode_python                     ='python3'
+let g:pymode_doc                        =1
+let g:pymode_warnings                   =1
+let g:pymode_doc_bind                   ='K'
+let g:pymode_lint_checkers              =['mypy', 'pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_ignore                =['E252', 'W391']
+
+if  !exists('g:tagbar_type_groovy')
     let g:tagbar_type_groovy                ={}
 endif
 let g:groovy_highlight_all                  =1
@@ -181,14 +188,7 @@ let g:airline_symbols.dirty             ='!'
 let g:airline_symbols.crypt             =''
 let g:airline_symbols.space             =' '
 let g:airline_symbols.ellipsis          ='…'
-let g:airline_section_c                 ='%<%f %h%m%r%>%{kite#statusline()}'
-
-let g:kite_tab_complete =1
-let g:kite_log          =1
-
-set completeopt       +=menuone
-set completeopt       +=noinsert
-set completeopt       +=preview
+let g:airline_section_c                 ='%<%f %h%m%r%>'
 
 function! HasPaste()
     if &paste
